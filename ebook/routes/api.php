@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,12 @@ Route::get('me', function(){
     
 });
 
-Route::get('me', [AuthController::class, 'me']);
+//Route::get('me', [AuthController::class, 'me']);
+//Route::get('books/{id}', [BookController::class, 'show']);
+//Route::post('books', [BookController::class, 'store']);
+//Route::put('books/{id}', [BookController::class, 'update']);
+//Route::delete('books/{id}', [BookController::class, 'destroy']);
+
+Route::resource('books', BookController::class)->except(
+    ['create', 'edit']
+);
