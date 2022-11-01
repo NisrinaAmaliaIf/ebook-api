@@ -102,7 +102,7 @@ class BookController extends Controller
             $book->publisher = $request->publisher ? $request->publisher : $book->publisher;
             $book->date_of_issue = $request->date_of_issue ? $request->date_of_issue : $book->date_of_issue;
             $book->save();
-            return responses()->json([
+            return response()->json([
                 'status' => 200,
                 'data' => $book
             ],200);
